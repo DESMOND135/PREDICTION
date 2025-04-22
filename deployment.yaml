@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: house-price-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: house-price-app
+  template:
+    metadata:
+      labels:
+        app: house-price-app
+    spec:
+      containers:
+      - name: house-price-container
+        image: house-price-app:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000

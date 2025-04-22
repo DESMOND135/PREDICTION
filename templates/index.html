@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Predictor</title>
+</head>
+<body>
+    <h2>Enter House Details</h2>
+    <form action="/predict" method="post">
+        {% for feature in [
+            'bedrooms', 'bathrooms', 'sqft_living', 'sqft_lot', 'floors',
+            'waterfront', 'view', 'condition', 'grade', 'sqft_above',
+            'sqft_basement', 'yr_built', 'yr_renovated', 'zipcode', 'lat',
+            'long', 'sqft_living15', 'sqft_lot15', 'House_Age'
+        ] %}
+        <label>{{ feature.replace('_', ' ').title() }}</label>
+        <input type="number" name="{{ feature }}" step="any" required><br><br>
+        {% endfor %}
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
